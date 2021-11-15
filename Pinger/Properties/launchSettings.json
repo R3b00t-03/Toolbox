@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Pinger": {
+      "commandName": "Project",
+      "commandLineArgs": "-h baladawdawd -o C:\\Users\\E6878\\Desktop\\test.csv -i 15"
+    }
+  }
+}
