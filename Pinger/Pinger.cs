@@ -7,7 +7,7 @@ using System.Net.NetworkInformation;
 
 namespace Pinger
 {
-    internal class Pinger
+    public class Pinger
     {
         private bool _pingable;
         private float _rtt;

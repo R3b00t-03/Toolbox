@@ -2,7 +2,7 @@
 
 
 string host_or_address = "";
-string outFile = "output.csv";
+string outFile = Environment.CurrentDirectory + "\\" + "output.csv";
 int interval = 10;
 bool shouldShowHelp = false;
 
@@ -10,7 +10,7 @@ var p = new OptionSet()
 {
     {"h|host=", "the host or address to ping", (string h) => host_or_address = h },
     {"i|interval=", "the time between pings (in seconds)", (int i) => interval = i },
-    {"o|outfile=", "the *.csv file the results should be saved to", (string o) => outFile = o},
+    {"o|outfile=", "the *.csv file the results should be saved to (default)", (string o) => outFile = o},
     {"?|help", "help message", s => shouldShowHelp = s != null }
 };
 
@@ -75,23 +75,30 @@ while (true)
     //Console.WriteLine("Host: {0}, RTT: {1}, Pingable: {2}, Timestamp: {3}", pinger.Host, pinger.RoundTripTime, pinger.Pingable, pinger.Timestamp);
     Console.Write("Host: {0}, ", pinger.Host);
     Console.Write("RTT: ");
-    if (pinger.RoundTripTime <= 20)
+    if (pinger.Pingable)
     {
-        Console.ForegroundColor = ConsoleColor.Green;
+        if (pinger.RoundTripTime <= 20)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+        }
+        else if (pinger.RoundTripTime >= 21 && pinger.RoundTripTime <= 50)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+        }
+        else if (pinger.RoundTripTime >= 51 && pinger.RoundTripTime <= 100)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+        }
+        else if (pinger.RoundTripTime >= 101 && pinger.RoundTripTime <= 300)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+        }
+        else if (pinger.RoundTripTime > 300)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+        }
     }
-    else if(pinger.RoundTripTime >= 21 && pinger.RoundTripTime <= 50)
-    {
-        Console.ForegroundColor = ConsoleColor.DarkGreen;
-    }
-    else if(pinger.RoundTripTime >= 51 && pinger.RoundTripTime <= 100)
-    {
-        Console.ForegroundColor = ConsoleColor.Yellow;
-    }
-    else if(pinger.RoundTripTime >= 101 && pinger.RoundTripTime <= 300)
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
-    }
-    else if(pinger.RoundTripTime > 300)
+    else
     {
         Console.ForegroundColor = ConsoleColor.DarkRed;
     }

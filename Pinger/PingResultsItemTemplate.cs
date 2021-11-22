@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pinger
 {
-    internal class PingResultsItemTemplate
+    public class PingResultsItemTemplate
     {
         public string Host { get; set; }
         public float roundTripTime { get; set; }

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "LoadAnalyzer": {
+      "commandName": "Project",
+      "commandLineArgs": "-h M00189355053"
+    }
+  }
+}
