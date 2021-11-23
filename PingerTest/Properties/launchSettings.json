@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PingerTest": {
+      "commandName": "Project",
+      "commandLineArgs": "\"H:\\Programme\""
+    }
+  }
+}
