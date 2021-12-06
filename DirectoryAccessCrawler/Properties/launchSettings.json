@@ -2,7 +2,7 @@
   "profiles": {
     "DirectoryAccessCrawler": {
       "commandName": "Project",
-      "commandLineArgs": "-t c:\\temp -o C:\\Users\\E6878\\Desktop\\test.csv"
+      "commandLineArgs": "-t H: -o C:\\Users\\E6878\\Desktop\\test.csv"
     }
   }
 }
