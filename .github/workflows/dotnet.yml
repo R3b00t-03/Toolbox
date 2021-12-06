@@ -33,7 +33,7 @@ jobs:
         draft: false
         prerelease: false
         release_name: ${{github.GITHUB_RUN_NUMBER}}
-        tag_name: ${{github.ref}}
+        tag_name: ${{github.GITHUB_RUN_NUMBER}}
         
     - name: upload windows artifact
       uses: actions/upload-release-asset@v1
