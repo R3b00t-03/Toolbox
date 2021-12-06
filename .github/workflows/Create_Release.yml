@@ -1,0 +1,60 @@
+name: Create Release
+
+on:
+  workflow_dispatch
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    - name: Zip File 1
+      run: Compress-Archive -Path ".\Pinger\bin\Release\net6.0\*" "PingLogger_Win64x.zip" -Force
+    - name: Zip File 2
+      run: Compress-Archive -Path ".\DirectoryAccessCrawler\bin\Release\net6.0\*" "DirectoryAccessCrawler_Win64x.zip" -Force
+      
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        tag_name: v${GITHUB_RUN_NUMBER}
+        release_name: Release ${GITHUB_RUN_NUMBER}
+        body: |
+          Changes in this Release
+          - First Change
+          - Second Change
+        draft: false
+        prerelease: false
+        
+    - name: Upload 1
+      id: upload-release-asset_1
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: ./PingLogger_Win64x.zip
+        asset_name: PingLogger_Win64x.zip
+        asset_content_type: application/zip
+    - name: Upload 2
+      id: upload-release-asset_2
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: ./DirectoryAccessCrawler_Win64x.zip
+        asset_name: DirectoryAccessCrawler_Win64x.zip
+        asset_content_type: application/zip
