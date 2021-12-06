@@ -20,7 +20,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build ToolKitV2.sln --configuration Release --no-restore
       
     - name: Zip the Build
       run: tar.exe -a -c -f ${{ secrets.ReleaseZipName }} "./Pinger/bin/Release/net6.0/" "./DirectoryAccessCrawler/bin/Release/net6.0/"
