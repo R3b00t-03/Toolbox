@@ -31,7 +31,7 @@ jobs:
       with:
         tag_name: ${{ github.run_number }}
         release_name: Release ${{ github.run_number }}
-        body: changelog.md
+        body_path: changelog.md
 
         draft: false
         prerelease: false
