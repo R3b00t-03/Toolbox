@@ -18,8 +18,6 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
     - name: Zip File 1
       run: Compress-Archive -Path ".\Pinger\bin\Release\net6.0\*" "PingLogger_Win64x.zip" -Force
     - name: Zip File 2
