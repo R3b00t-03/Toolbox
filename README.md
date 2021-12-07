@@ -1,4 +1,4 @@
-# UniversalToolkit
+# RandomToolkit
 Some Random tools
 
 ## Tools i eventually start developing:
