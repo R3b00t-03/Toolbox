@@ -3,22 +3,24 @@
 
 long size = 1024 * 1024 * 16;
 string outFile = Environment.CurrentDirectory + "\\" + "output.dummy";
-
+string unit = "B";
 bool shouldShowHelp = false;
 
 var p = new OptionSet()
 {
 
     {"s|size=", "The size in Bytes", (long _size) => size = _size },
+    {"u|unit=", "Unit (KB, MB, GB)", (string _unit) => unit = _unit },
     {"o|outfile=", "name of Dummy File", (string o) => outFile = o},
     {"?|help", "help message", s => shouldShowHelp = s != null }
 };
 
 void ShowHelp(OptionSet p)
 {
-    Console.WriteLine("Usage: Pinger [host] + [OPTIONS]");
-    Console.WriteLine("Ping the defined host and write result to csv file");
-    Console.WriteLine("If no outFile is specified output.csv is used.");
+    Console.WriteLine("Usage: DFG -o [outfile] -s [size] -u [unit]");
+    Console.WriteLine("Unit (KB, MB, GB) default B");
+    Console.WriteLine("Outfile default output.dummy");
+    Console.WriteLine("Size default 16MB");
     Console.WriteLine();
     Console.WriteLine("Options:");
     p.WriteOptionDescriptions(Console.Out);
@@ -43,10 +45,30 @@ if (shouldShowHelp)
     return;
 }
 
+switch (unit.ToUpper())
+{
+    case "B":
+        size = size;
+        break;
+    case "KB":
+        size = size * 1024;
+        break;
+    case "MB":
+        size = size * 1024 * 1024;
+        break;
+    case "GB":
+        size = size * 1024 * 1024 * 1024;
+        break;
+    default:
+        return;
+        break;
+}
+
+
 FileStream fs = new FileStream(outFile, FileMode.CreateNew);
 fs.Seek(size, SeekOrigin.Begin);
 fs.WriteByte(0);
 fs.Close();
-Console.WriteLine("{0} Bytes written to {1}", size, outFile);
+Console.WriteLine("{0} {1} Bytes written to {2}", size, unit, outFile);
 
 
