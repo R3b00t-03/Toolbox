@@ -3,5 +3,5 @@ Some Random tools
 
 ## Pinger Usage:
 ```Powershell
-Pinger -h [Hostname] -o [output file] -i [intervall]
+Pinger -h [Hostname or IP] -o [output file] -i [intervall]
 ```
