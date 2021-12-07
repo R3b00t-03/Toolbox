@@ -13,7 +13,7 @@ Some Random tools
 This tool continuously sends Pings to a given host and writes them into a .CSV record.
 ### Usage
 ```Powershell
-Pinger -h [Hostname or IP] -o [output file] -i [intervall]
+PingerLog -h [Hostname or IP] -o [output file] -i [intervall]
 ```
 ### Sample Output
 ```Console
