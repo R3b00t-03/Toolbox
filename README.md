@@ -36,12 +36,12 @@ This tool generates files with random data in specified size.
 ```Powershell
 DFG -o [outputFile] -s [size] -u [Unit]
 ```
-Unit (KB, MB, GB) default B
-Outfile default output.dummy
-Size default 16MB
+Unit (KB, MB, GB) default B <br/>
+Outfile default output.dummy<br/>
+Size default 16MB<br/>
 
-Options:
-  -s, --size=VALUE           The size in Bytes
-  -u, --unit=VALUE           Unit (KB, MB, GB)
-  -o, --outfile=VALUE        name of Dummy File
+Options:<br/>
+  -s, --size=VALUE           The size in Bytes<br/>
+  -u, --unit=VALUE           Unit (KB, MB, GB)<br/>
+  -o, --outfile=VALUE        name of Dummy File<br/>
   -?, --help                 help message
