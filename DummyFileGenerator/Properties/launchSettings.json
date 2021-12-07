@@ -2,7 +2,7 @@
   "profiles": {
     "DummyFileGenerator": {
       "commandName": "Project",
-      "commandLineArgs": "-s 16 -u mb"
+      "commandLineArgs": "-?"
     }
   }
 }

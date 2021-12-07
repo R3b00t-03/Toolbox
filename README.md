@@ -29,3 +29,19 @@ This tool runs recursively through the file system and retrieves folder access r
 ```Powershell
 DirectoryAccessCrawler -t [root folder] -o [outputfile .csv]
 ```
+
+## DummyFileGenerator
+This tool generates files with random data in specified size.
+### Usage:
+```Powershell
+DFG -o [outputFile] -s [size] -u [Unit]
+```
+Unit (KB, MB, GB) default B
+Outfile default output.dummy
+Size default 16MB
+
+Options:
+  -s, --size=VALUE           The size in Bytes
+  -u, --unit=VALUE           Unit (KB, MB, GB)
+  -o, --outfile=VALUE        name of Dummy File
+  -?, --help                 help message
