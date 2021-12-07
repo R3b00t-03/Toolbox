@@ -5,9 +5,11 @@ VisualStudioVersion = 17.0.31825.309
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pinger", "Pinger\Pinger.csproj", "{54A3309B-2852-4B8B-9D7B-7F5935B021E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PingerTest", "PingerTest\PingerTest.csproj", "{BA62C255-9555-454A-89AA-A9BE33013756}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PingerTest", "PingerTest\PingerTest.csproj", "{BA62C255-9555-454A-89AA-A9BE33013756}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirectoryAccessCrawler", "DirectoryAccessCrawler\DirectoryAccessCrawler.csproj", "{F64C24B7-DF21-4DB1-B982-19AE5DFC14F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DirectoryAccessCrawler", "DirectoryAccessCrawler\DirectoryAccessCrawler.csproj", "{F64C24B7-DF21-4DB1-B982-19AE5DFC14F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DummyFileGenerator", "DummyFileGenerator\DummyFileGenerator.csproj", "{5A235341-2C4F-4EEE-928C-2C4FF0395371}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{F64C24B7-DF21-4DB1-B982-19AE5DFC14F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F64C24B7-DF21-4DB1-B982-19AE5DFC14F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F64C24B7-DF21-4DB1-B982-19AE5DFC14F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A235341-2C4F-4EEE-928C-2C4FF0395371}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A235341-2C4F-4EEE-928C-2C4FF0395371}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A235341-2C4F-4EEE-928C-2C4FF0395371}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A235341-2C4F-4EEE-928C-2C4FF0395371}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
