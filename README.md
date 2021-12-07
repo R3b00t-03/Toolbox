@@ -6,7 +6,7 @@ Some Random tools
 - [ ] Pinger (GUI)
 - [x] DirectoryAccessCrawler
 - [ ] DirectoryAccessCrawler (GUI)
-- [ ] Dummy File Generator
+- [x] Dummy File Generator
 - [ ] Dummy File Generator (GUI)
 
 ## Pinger
