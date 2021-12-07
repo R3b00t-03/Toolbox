@@ -6,14 +6,14 @@ Some Random tools
 - [ ] Pinger (GUI)
 - [x] DirectoryAccessCrawler
 - [ ] DirectoryAccessCrawler (GUI)
-- [ ] Dummy File Generator
+- [x] Dummy File Generator
 - [ ] Dummy File Generator (GUI)
 
 ## Pinger
 This tool continuously sends Pings to a given host and writes them into a .CSV record.
 ### Usage
 ```Powershell
-Pinger -h [Hostname or IP] -o [output file] -i [intervall]
+PingerLog -h [Hostname or IP] -o [output file] -i [intervall]
 ```
 ### Sample Output
 ```Console
@@ -29,3 +29,19 @@ This tool runs recursively through the file system and retrieves folder access r
 ```Powershell
 DirectoryAccessCrawler -t [root folder] -o [outputfile .csv]
 ```
+
+## DummyFileGenerator
+This tool generates files with random data in specified size.
+### Usage:
+```Powershell
+DFG -o [outputFile] -s [size] -u [Unit]
+```
+Unit (KB, MB, GB) default B <br/>
+Outfile default output.dummy<br/>
+Size default 16MB<br/>
+
+Options:<br/>
+  -s, --size=VALUE           The size in Bytes<br/>
+  -u, --unit=VALUE           Unit (KB, MB, GB)<br/>
+  -o, --outfile=VALUE        name of Dummy File<br/>
+  -?, --help                 help message

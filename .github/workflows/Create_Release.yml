@@ -18,10 +18,12 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
-    - name: Zip File 1
+    - name: Zip PingerLog
       run: Compress-Archive -Path ".\Pinger\bin\Release\net6.0\*" "PingLogger_Win64x.zip" -Force
-    - name: Zip File 2
+    - name: Zip DirectoryAccessCrawler
       run: Compress-Archive -Path ".\DirectoryAccessCrawler\bin\Release\net6.0\*" "DirectoryAccessCrawler_Win64x.zip" -Force
+    - name: Zip DummyFileGenerator
+      run: Compress-Archive -Path ".\DummyFileGenerator\bin\Release\net6.0\*" "DummyFileGenerator_Win64x.zip" -Force
       
     - name: Create Release
       id: create_release
@@ -36,7 +38,7 @@ jobs:
         draft: false
         prerelease: false
         
-    - name: Upload 1
+    - name: Upload PingerLog
       id: upload-release-asset_1
       uses: actions/upload-release-asset@v1
       env:
@@ -46,7 +48,7 @@ jobs:
         asset_path: ./PingLogger_Win64x.zip
         asset_name: PingLogger_Win64x.zip
         asset_content_type: application/zip
-    - name: Upload 2
+    - name: Upload DirectoryAccessCrawler
       id: upload-release-asset_2
       uses: actions/upload-release-asset@v1
       env:
@@ -55,4 +57,15 @@ jobs:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
         asset_path: ./DirectoryAccessCrawler_Win64x.zip
         asset_name: DirectoryAccessCrawler_Win64x.zip
+        asset_content_type: application/zip
+
+    - name: Upload DummyFileGenerator
+      id: upload-release-asset_3
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: ./DummyFileGenerator_Win64x.zip
+        asset_name: DummyFileGenerator_Win64x.zip
         asset_content_type: application/zip

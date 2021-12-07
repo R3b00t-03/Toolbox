@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "DummyFileGenerator": {
+      "commandName": "Project",
+      "commandLineArgs": "-?"
+    }
+  }
+}
